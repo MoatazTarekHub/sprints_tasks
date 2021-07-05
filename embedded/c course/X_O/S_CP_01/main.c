@@ -15,7 +15,6 @@ void print_TwoDim_array(char arr[5][5])
 
 }
 int check_input(int *input,int cases){
-
 for(int i=0;i<9;i++){
    if (input[i]==cases){
             return 2;
@@ -71,18 +70,20 @@ int main()
     int index=0;
     char arr[5][5]= {{'1','|','2','|','3'},{'-','-','-','-','-'},{'4','|','5','|','6'},{'-','-','-','-','-'},{'7','|','8','|','9'}};
     int cases[9]={0};
-    printf("user 1 is play with (O) and user 2 play with (X) \n \n");
 
     while(counter<9)
-    {
+    {    printf("user 1 is play with (O) and user 2 play with (X) \n \n");
+
         printf("please enter which case you want to play in \n");
         print_TwoDim_array(arr);
         printf("\n");
         printf("\n");
         scanf ("%d",&input);
-        while(check_input(cases,input)!=1){
+        while(check_input(cases,input)!=1||input+48>57||input+48<48){
         printf("please enter valid place \n");
         scanf ("%d",&input);
+        fflush(stdin);
+
         }
         cases[index]=input;
 
@@ -244,3 +245,4 @@ int main()
 
 
 }
+
