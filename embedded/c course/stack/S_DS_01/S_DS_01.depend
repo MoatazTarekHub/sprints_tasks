@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1625450335 source:d:\iti 3 month\c woek space\s_ds_01\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1625450488 source:d:\iti 3 month\c woek space\stack_test\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"STD_TYPES.h"
+
+1625400429 d:\iti 3 month\c woek space\stack_test\std_types.h
+
