@@ -220,7 +220,6 @@ int main()
             if (flag==2)
             {
                 printf("\n mabrook ksbt ya user 1 \n");
-
             }
             else if(flag==1)
             {
@@ -242,6 +241,7 @@ int main()
 
     }
 
+                getchar();
 
 
 }
