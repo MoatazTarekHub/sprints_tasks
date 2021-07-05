@@ -9,9 +9,6 @@ int cheking(int*arr,int size)
 
         if (arr[j]>arr[j+1])
         {
-            temp=arr[j];
-            arr[j]=arr[j+1];
-            arr[j+1]=temp;
             flag=1;
         }
 
@@ -58,6 +55,8 @@ void sorting(int*arr,int size)
 int searching(int*arr,int size,int input)
 {
     int middle;
+    int index=-1;
+
     int last=size-1;
     int first =0;
     for(int i=0; i<size; i++)
@@ -73,10 +72,11 @@ int searching(int*arr,int size,int input)
         }
         if (input==arr[middle])
         {
+            index=middle;
             break;
         }
     }
-    return middle;
+    return index;
 
 }
 void printing(int*arr,int size)
@@ -92,8 +92,9 @@ int main()
 {
     int arr[]= {1,2,4,3,6,9,15};
     int size_arr=sizeof(arr)/sizeof(arr[0]);
-    if(cheking(arr,size_arr)==1){
-    sorting(arr,size_arr);
+    if(cheking(arr,size_arr)==1)
+    {
+        sorting(arr,size_arr);
     }
     printing(arr,size_arr);
     int index=searching(arr,size_arr,12);
