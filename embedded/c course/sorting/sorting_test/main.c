@@ -2,19 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "STD_TYPES.h"
-#define NOTFOUND 0
+#define NOTFOUND -1
 int cheking(uint8_t *arr,uint8_t size)
 {
-    int flag=0;
+       int flag=0;
     int temp;
     for(int j=0; j<size-1; j++)
     {
 
         if (arr[j]>arr[j+1])
         {
-            temp=arr[j];
-            arr[j]=arr[j+1];
-            arr[j+1]=temp;
             flag=1;
         }
 
@@ -59,7 +56,7 @@ void sorting(int*arr,int size)
     }
 }
 int searching(uint8_t*arr,uint8_t size,uint8_t input)
-{
+{   int index=-1;
     int middle;
     int last=size-1;
     int first =0;
@@ -75,11 +72,11 @@ int searching(uint8_t*arr,uint8_t size,uint8_t input)
             last=middle-1;
         }
         if (input==arr[middle])
-        {
+        {index=middle;
             break;
         }
     }
-    return middle;
+    return index;
 
 }
 void printing(int*arr,int size)
