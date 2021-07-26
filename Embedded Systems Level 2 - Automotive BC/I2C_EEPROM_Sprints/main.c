@@ -26,9 +26,25 @@ int main(void){
 	uint8_t value;
 	I2C_MasterInit();
 
+		//I2C_MasterStart();
 		UART_Init(9600);
 
+		/* EEPROM code*/
+		/*I2C_SendSlaveAddressWithWrite(0b01010000);
+		I2C_WriteDataByte(0b00001111);
+		 I2C_WriteDataByte('b');
+		 I2C_MasterStop();*/
+//_delay_ms(10);
+		/*                 */
+		/* I2C_MasterStart();
+		I2C_SendSlaveAddressWithWrite(0b01010000);
+		I2C_WriteDataByte(0b00001111);
 
+		I2C_MasterStart();
+		I2C_SendSlaveAddressWithRead(0b01010000);
+		 value= I2C_ReadDataByte();
+		 DIO_voidSetPortValue(PORT_D,value);
+		 I2C_MasterStop();*/
 
 		while(1){
 
@@ -52,13 +68,29 @@ uint8_t check(uint8_t *str,uint8_t address){
 	if(str[0]=='w'){
 		UART_Transmite_String("\r\n you want write operation");
 
-
-		eeprom_send_string("11234");
+		I2C_MasterStart();
+		I2C_SendSlaveAddressWithWrite(0b01010000);
+				I2C_WriteDataByte(0b00000001);
+				 I2C_WriteDataByte('c');
+				 I2C_MasterStop();
+		//eeprom_send_string("11234");
 	}
 	else if(str[0]=='r'){
 		UART_Transmite_String("\r\n you want  read operation");
 
-		eeprom_recieve_string(add);
+		//eeprom_recieve_string(add);
+		I2C_MasterStart();
+			I2C_SendSlaveAddressWithWrite(0b01010000);
+			I2C_WriteDataByte(address);
+
+			I2C_MasterStart();
+			I2C_SendSlaveAddressWithRead(0b01010000);
+			 value= I2C_ReadDataByte();
+			UART_Transmite_String("\r");
+
+
+			 I2C_MasterStop();
+			UART_Transmite(value);
 
 	}
 

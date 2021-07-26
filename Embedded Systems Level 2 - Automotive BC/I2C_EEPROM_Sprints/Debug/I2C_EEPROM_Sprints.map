@@ -128,7 +128,7 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x10b6
+.text           0x00000000     0x10f2
  *(.vectors)
  .vectors       0x00000000       0x54 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -278,29 +278,29 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
                 0x00000bca                DIO_voidInpullUp
  .text.main     0x00000d72       0x5e ./main.o
                 0x00000d72                main
- .text.check    0x00000dd0       0x58 ./main.o
+ .text.check    0x00000dd0       0x94 ./main.o
                 0x00000dd0                check
  .text.eeprom_send_string
-                0x00000e28       0x6a ./main.o
-                0x00000e28                eeprom_send_string
+                0x00000e64       0x6a ./main.o
+                0x00000e64                eeprom_send_string
  .text.eeprom_recieve_string
-                0x00000e92       0x60 ./main.o
-                0x00000e92                eeprom_recieve_string
+                0x00000ece       0x60 ./main.o
+                0x00000ece                eeprom_recieve_string
  .text.change_stringToBin
-                0x00000ef2      0x13e ./main.o
-                0x00000ef2                change_stringToBin
- .text.libgcc   0x00001030       0x3e d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00001030                __mulsi3
- .text.libgcc   0x0000106e       0x44 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x0000106e                __udivmodsi4
- .text.libgcc   0x000010b2        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000010b2        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000010b2        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x000010b2                . = ALIGN (0x2)
+                0x00000f2e      0x13e ./main.o
+                0x00000f2e                change_stringToBin
+ .text.libgcc   0x0000106c       0x3e d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x0000106c                __mulsi3
+ .text.libgcc   0x000010aa       0x44 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x000010aa                __udivmodsi4
+ .text.libgcc   0x000010ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000010ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000010ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000010ee                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000010b2        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000010b2                exit
-                0x000010b2                _exit
+ .fini9         0x000010ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000010ee                exit
+                0x000010ee                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -319,58 +319,58 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000010b2        0x4 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000010ee        0x4 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000010b6                _etext = .
+                0x000010f2                _etext = .
 
-.data           0x00800060       0x7a load address 0x000010b6
+.data           0x00800060       0x74 load address 0x000010f2
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  .data          0x00800060        0x0 ./MCAL/UART/Uart_Program.o
  .data          0x00800060        0x0 ./MCAL/I2C/I2C_Program.o
  .data          0x00800060        0x0 ./MCAL/DIO/DIO.o
- .data          0x00800060       0x7a ./main.o
- .data          0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .data          0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .data          0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800060       0x74 ./main.o
+ .data          0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x008000da                . = ALIGN (0x2)
-                0x008000da                _edata = .
-                0x008000da                PROVIDE (__data_end, .)
+                0x008000d4                . = ALIGN (0x2)
+                0x008000d4                _edata = .
+                0x008000d4                PROVIDE (__data_end, .)
 
-.bss            0x008000da       0x64
-                0x008000da                PROVIDE (__bss_start, .)
+.bss            0x008000d4       0x64
+                0x008000d4                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x008000da        0x0 ./MCAL/UART/Uart_Program.o
- .bss           0x008000da        0x0 ./MCAL/I2C/I2C_Program.o
- .bss           0x008000da        0x0 ./MCAL/DIO/DIO.o
- .bss           0x008000da        0x0 ./main.o
- .bss           0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .bss           0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x008000da        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x008000d4        0x0 ./MCAL/UART/Uart_Program.o
+ .bss           0x008000d4        0x0 ./MCAL/I2C/I2C_Program.o
+ .bss           0x008000d4        0x0 ./MCAL/DIO/DIO.o
+ .bss           0x008000d4        0x0 ./main.o
+ .bss           0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008000d4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x008000da       0x64 ./main.o
-                0x008000da                add
-                0x0080013e                PROVIDE (__bss_end, .)
-                0x000010b6                __data_load_start = LOADADDR (.data)
-                0x00001130                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008000d4       0x64 ./main.o
+                0x008000d4                add
+                0x00800138                PROVIDE (__bss_end, .)
+                0x000010f2                __data_load_start = LOADADDR (.data)
+                0x00001166                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080013e        0x0
-                0x0080013e                PROVIDE (__noinit_start, .)
+.noinit         0x00800138        0x0
+                0x00800138                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080013e                PROVIDE (__noinit_end, .)
-                0x0080013e                _end = .
-                0x0080013e                PROVIDE (__heap_start, .)
+                0x00800138                PROVIDE (__noinit_end, .)
+                0x00800138                _end = .
+                0x00800138                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -388,15 +388,15 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1794
+.stab           0x00000000     0x1824
  *(.stab)
  .stab          0x00000000      0x4e0 ./MCAL/UART/Uart_Program.o
  .stab          0x000004e0      0x3e4 ./MCAL/I2C/I2C_Program.o
                                 0x4d4 (size before relaxing)
  .stab          0x000008c4      0x804 ./MCAL/DIO/DIO.o
                                 0x810 (size before relaxing)
- .stab          0x000010c8      0x6cc ./main.o
-                                0x7bc (size before relaxing)
+ .stab          0x000010c8      0x75c ./main.o
+                                0x84c (size before relaxing)
 
 .stabstr        0x00000000     0x102b
  *(.stabstr)

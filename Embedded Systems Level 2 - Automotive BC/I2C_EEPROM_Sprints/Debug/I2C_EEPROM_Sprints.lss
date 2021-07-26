@@ -3,15 +3,15 @@ I2C_EEPROM_Sprints.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000010b6  00000000  00000000  00000094  2**1
+  0 .text         000010f2  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000007a  00800060  000010b6  0000114a  2**0
+  1 .data         00000074  00800060  000010f2  00001186  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000064  008000da  008000da  000011c4  2**0
+  2 .bss          00000064  008000d4  008000d4  000011fa  2**0
                   ALLOC
-  3 .stab         00001794  00000000  00000000  000011c4  2**2
+  3 .stab         00001824  00000000  00000000  000011fc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      0000102b  00000000  00000000  00002958  2**0
+  4 .stabstr      0000102b  00000000  00000000  00002a20  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -51,7 +51,7 @@ Disassembly of section .text:
       60:	10 e0       	ldi	r17, 0x00	; 0
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	e6 eb       	ldi	r30, 0xB6	; 182
+      66:	e2 ef       	ldi	r30, 0xF2	; 242
       68:	f0 e1       	ldi	r31, 0x10	; 16
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -60,13 +60,13 @@ Disassembly of section .text:
       6e:	0d 92       	st	X+, r0
 
 00000070 <.do_copy_data_start>:
-      70:	aa 3d       	cpi	r26, 0xDA	; 218
+      70:	a4 3d       	cpi	r26, 0xD4	; 212
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
 
 00000076 <__do_clear_bss>:
       76:	11 e0       	ldi	r17, 0x01	; 1
-      78:	aa ed       	ldi	r26, 0xDA	; 218
+      78:	a4 ed       	ldi	r26, 0xD4	; 212
       7a:	b0 e0       	ldi	r27, 0x00	; 0
       7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -74,11 +74,11 @@ Disassembly of section .text:
       7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-      80:	ae 33       	cpi	r26, 0x3E	; 62
+      80:	a8 33       	cpi	r26, 0x38	; 56
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
       86:	0e 94 b9 06 	call	0xd72	; 0xd72 <main>
-      8a:	0c 94 59 08 	jmp	0x10b2	; 0x10b2 <_exit>
+      8a:	0c 94 77 08 	jmp	0x10ee	; 0x10ee <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -2246,13 +2246,13 @@ int main(void){
      daa:	90 e0       	ldi	r25, 0x00	; 0
      dac:	0e 94 d7 00 	call	0x1ae	; 0x1ae <UART_Transmite_String>
 				 UART_Recive_String(add);
-     db0:	8a ed       	ldi	r24, 0xDA	; 218
+     db0:	84 ed       	ldi	r24, 0xD4	; 212
      db2:	90 e0       	ldi	r25, 0x00	; 0
      db4:	0e 94 00 01 	call	0x200	; 0x200 <UART_Recive_String>
 				value= change_stringToBin(add);
-     db8:	8a ed       	ldi	r24, 0xDA	; 218
+     db8:	84 ed       	ldi	r24, 0xD4	; 212
      dba:	90 e0       	ldi	r25, 0x00	; 0
-     dbc:	0e 94 79 07 	call	0xef2	; 0xef2 <change_stringToBin>
+     dbc:	0e 94 97 07 	call	0xf2e	; 0xf2e <change_stringToBin>
      dc0:	89 83       	std	Y+1, r24	; 0x01
 			value=check(data,value);
      dc2:	ce 01       	movw	r24, r28
@@ -2285,471 +2285,497 @@ uint8_t check(uint8_t *str,uint8_t address){
      de4:	fb 81       	ldd	r31, Y+3	; 0x03
      de6:	80 81       	ld	r24, Z
      de8:	87 37       	cpi	r24, 0x77	; 119
-     dea:	49 f4       	brne	.+18     	; 0xdfe <check+0x2e>
+     dea:	91 f4       	brne	.+36     	; 0xe10 <check+0x40>
 		UART_Transmite_String("\r\n you want write operation");
      dec:	8a e9       	ldi	r24, 0x9A	; 154
      dee:	90 e0       	ldi	r25, 0x00	; 0
      df0:	0e 94 d7 00 	call	0x1ae	; 0x1ae <UART_Transmite_String>
-		/*I2C_MasterStart();
+
+		I2C_MasterStart();
+     df4:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
 		I2C_SendSlaveAddressWithWrite(0b01010000);
+     df8:	80 e5       	ldi	r24, 0x50	; 80
+     dfa:	0e 94 a3 01 	call	0x346	; 0x346 <I2C_SendSlaveAddressWithWrite>
 				I2C_WriteDataByte(0b00000001);
+     dfe:	81 e0       	ldi	r24, 0x01	; 1
+     e00:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
 				 I2C_WriteDataByte('c');
-				 I2C_MasterStop();*/
-		eeprom_send_string("11234");
-     df4:	86 eb       	ldi	r24, 0xB6	; 182
-     df6:	90 e0       	ldi	r25, 0x00	; 0
-     df8:	0e 94 14 07 	call	0xe28	; 0xe28 <eeprom_send_string>
-     dfc:	0d c0       	rjmp	.+26     	; 0xe18 <check+0x48>
+     e04:	83 e6       	ldi	r24, 0x63	; 99
+     e06:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
+				 I2C_MasterStop();
+     e0a:	0e 94 29 02 	call	0x452	; 0x452 <I2C_MasterStop>
+     e0e:	22 c0       	rjmp	.+68     	; 0xe54 <check+0x84>
+		//eeprom_send_string("11234");
 	}
 	else if(str[0]=='r'){
-     dfe:	ea 81       	ldd	r30, Y+2	; 0x02
-     e00:	fb 81       	ldd	r31, Y+3	; 0x03
-     e02:	80 81       	ld	r24, Z
-     e04:	82 37       	cpi	r24, 0x72	; 114
-     e06:	41 f4       	brne	.+16     	; 0xe18 <check+0x48>
+     e10:	ea 81       	ldd	r30, Y+2	; 0x02
+     e12:	fb 81       	ldd	r31, Y+3	; 0x03
+     e14:	80 81       	ld	r24, Z
+     e16:	82 37       	cpi	r24, 0x72	; 114
+     e18:	e9 f4       	brne	.+58     	; 0xe54 <check+0x84>
 		UART_Transmite_String("\r\n you want  read operation");
-     e08:	8c eb       	ldi	r24, 0xBC	; 188
-     e0a:	90 e0       	ldi	r25, 0x00	; 0
-     e0c:	0e 94 d7 00 	call	0x1ae	; 0x1ae <UART_Transmite_String>
+     e1a:	86 eb       	ldi	r24, 0xB6	; 182
+     e1c:	90 e0       	ldi	r25, 0x00	; 0
+     e1e:	0e 94 d7 00 	call	0x1ae	; 0x1ae <UART_Transmite_String>
 
-		eeprom_recieve_string(add);
-     e10:	8a ed       	ldi	r24, 0xDA	; 218
-     e12:	90 e0       	ldi	r25, 0x00	; 0
-     e14:	0e 94 49 07 	call	0xe92	; 0xe92 <eeprom_recieve_string>
+		//eeprom_recieve_string(add);
+		I2C_MasterStart();
+     e22:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
+			I2C_SendSlaveAddressWithWrite(0b01010000);
+     e26:	80 e5       	ldi	r24, 0x50	; 80
+     e28:	0e 94 a3 01 	call	0x346	; 0x346 <I2C_SendSlaveAddressWithWrite>
+			I2C_WriteDataByte(address);
+     e2c:	8c 81       	ldd	r24, Y+4	; 0x04
+     e2e:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
+
+			I2C_MasterStart();
+     e32:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
+			I2C_SendSlaveAddressWithRead(0b01010000);
+     e36:	80 e5       	ldi	r24, 0x50	; 80
+     e38:	0e 94 cc 01 	call	0x398	; 0x398 <I2C_SendSlaveAddressWithRead>
+			 value= I2C_ReadDataByte();
+     e3c:	0e 94 0f 02 	call	0x41e	; 0x41e <I2C_ReadDataByte>
+     e40:	89 83       	std	Y+1, r24	; 0x01
+			UART_Transmite_String("\r");
+     e42:	82 ed       	ldi	r24, 0xD2	; 210
+     e44:	90 e0       	ldi	r25, 0x00	; 0
+     e46:	0e 94 d7 00 	call	0x1ae	; 0x1ae <UART_Transmite_String>
+
+
 			 I2C_MasterStop();
-			UART_Transmite(value);*/
+     e4a:	0e 94 29 02 	call	0x452	; 0x452 <I2C_MasterStop>
+			UART_Transmite(value);
+     e4e:	89 81       	ldd	r24, Y+1	; 0x01
+     e50:	0e 94 bd 00 	call	0x17a	; 0x17a <UART_Transmite>
 
 	}
 
 return value;
-     e18:	89 81       	ldd	r24, Y+1	; 0x01
+     e54:	89 81       	ldd	r24, Y+1	; 0x01
 }
-     e1a:	0f 90       	pop	r0
-     e1c:	0f 90       	pop	r0
-     e1e:	0f 90       	pop	r0
-     e20:	0f 90       	pop	r0
-     e22:	cf 91       	pop	r28
-     e24:	df 91       	pop	r29
-     e26:	08 95       	ret
+     e56:	0f 90       	pop	r0
+     e58:	0f 90       	pop	r0
+     e5a:	0f 90       	pop	r0
+     e5c:	0f 90       	pop	r0
+     e5e:	cf 91       	pop	r28
+     e60:	df 91       	pop	r29
+     e62:	08 95       	ret
 
-00000e28 <eeprom_send_string>:
+00000e64 <eeprom_send_string>:
 void eeprom_send_string(uint8_t *str){
-     e28:	df 93       	push	r29
-     e2a:	cf 93       	push	r28
-     e2c:	00 d0       	rcall	.+0      	; 0xe2e <eeprom_send_string+0x6>
-     e2e:	00 d0       	rcall	.+0      	; 0xe30 <eeprom_send_string+0x8>
-     e30:	cd b7       	in	r28, 0x3d	; 61
-     e32:	de b7       	in	r29, 0x3e	; 62
-     e34:	9c 83       	std	Y+4, r25	; 0x04
-     e36:	8b 83       	std	Y+3, r24	; 0x03
-	    I2C_voidSendStopCondition();
+     e64:	df 93       	push	r29
+     e66:	cf 93       	push	r28
+     e68:	00 d0       	rcall	.+0      	; 0xe6a <eeprom_send_string+0x6>
+     e6a:	00 d0       	rcall	.+0      	; 0xe6c <eeprom_send_string+0x8>
+     e6c:	cd b7       	in	r28, 0x3d	; 61
+     e6e:	de b7       	in	r29, 0x3e	; 62
+     e70:	9c 83       	std	Y+4, r25	; 0x04
+     e72:	8b 83       	std	Y+3, r24	; 0x03
 
-	    return Local_enuState;
-	}
-*/
+
 	uint8_t i=0,value;
-     e38:	1a 82       	std	Y+2, r1	; 0x02
+     e74:	1a 82       	std	Y+2, r1	; 0x02
 				I2C_MasterStart();
-     e3a:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
+     e76:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
 				I2C_SendSlaveAddressWithWrite(0b01010000);
-     e3e:	80 e5       	ldi	r24, 0x50	; 80
-     e40:	0e 94 a3 01 	call	0x346	; 0x346 <I2C_SendSlaveAddressWithWrite>
+     e7a:	80 e5       	ldi	r24, 0x50	; 80
+     e7c:	0e 94 a3 01 	call	0x346	; 0x346 <I2C_SendSlaveAddressWithWrite>
 				I2C_WriteDataByte(0b00000001);
-     e44:	81 e0       	ldi	r24, 0x01	; 1
-     e46:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
-     e4a:	0f c0       	rjmp	.+30     	; 0xe6a <eeprom_send_string+0x42>
+     e80:	81 e0       	ldi	r24, 0x01	; 1
+     e82:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
+     e86:	0f c0       	rjmp	.+30     	; 0xea6 <eeprom_send_string+0x42>
 			    while (str[i] != '\0')
 			    {
 			    	I2C_WriteDataByte(str[i] - '0');
-     e4c:	8a 81       	ldd	r24, Y+2	; 0x02
-     e4e:	28 2f       	mov	r18, r24
-     e50:	30 e0       	ldi	r19, 0x00	; 0
-     e52:	8b 81       	ldd	r24, Y+3	; 0x03
-     e54:	9c 81       	ldd	r25, Y+4	; 0x04
-     e56:	fc 01       	movw	r30, r24
-     e58:	e2 0f       	add	r30, r18
-     e5a:	f3 1f       	adc	r31, r19
-     e5c:	80 81       	ld	r24, Z
-     e5e:	80 53       	subi	r24, 0x30	; 48
-     e60:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
+     e88:	8a 81       	ldd	r24, Y+2	; 0x02
+     e8a:	28 2f       	mov	r18, r24
+     e8c:	30 e0       	ldi	r19, 0x00	; 0
+     e8e:	8b 81       	ldd	r24, Y+3	; 0x03
+     e90:	9c 81       	ldd	r25, Y+4	; 0x04
+     e92:	fc 01       	movw	r30, r24
+     e94:	e2 0f       	add	r30, r18
+     e96:	f3 1f       	adc	r31, r19
+     e98:	80 81       	ld	r24, Z
+     e9a:	80 53       	subi	r24, 0x30	; 48
+     e9c:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
 			        i++;
-     e64:	8a 81       	ldd	r24, Y+2	; 0x02
-     e66:	8f 5f       	subi	r24, 0xFF	; 255
-     e68:	8a 83       	std	Y+2, r24	; 0x02
-*/
+     ea0:	8a 81       	ldd	r24, Y+2	; 0x02
+     ea2:	8f 5f       	subi	r24, 0xFF	; 255
+     ea4:	8a 83       	std	Y+2, r24	; 0x02
+
 	uint8_t i=0,value;
 				I2C_MasterStart();
 				I2C_SendSlaveAddressWithWrite(0b01010000);
 				I2C_WriteDataByte(0b00000001);
 			    while (str[i] != '\0')
-     e6a:	8a 81       	ldd	r24, Y+2	; 0x02
-     e6c:	28 2f       	mov	r18, r24
-     e6e:	30 e0       	ldi	r19, 0x00	; 0
-     e70:	8b 81       	ldd	r24, Y+3	; 0x03
-     e72:	9c 81       	ldd	r25, Y+4	; 0x04
-     e74:	fc 01       	movw	r30, r24
-     e76:	e2 0f       	add	r30, r18
-     e78:	f3 1f       	adc	r31, r19
-     e7a:	80 81       	ld	r24, Z
-     e7c:	88 23       	and	r24, r24
-     e7e:	31 f7       	brne	.-52     	; 0xe4c <eeprom_send_string+0x24>
+     ea6:	8a 81       	ldd	r24, Y+2	; 0x02
+     ea8:	28 2f       	mov	r18, r24
+     eaa:	30 e0       	ldi	r19, 0x00	; 0
+     eac:	8b 81       	ldd	r24, Y+3	; 0x03
+     eae:	9c 81       	ldd	r25, Y+4	; 0x04
+     eb0:	fc 01       	movw	r30, r24
+     eb2:	e2 0f       	add	r30, r18
+     eb4:	f3 1f       	adc	r31, r19
+     eb6:	80 81       	ld	r24, Z
+     eb8:	88 23       	and	r24, r24
+     eba:	31 f7       	brne	.-52     	; 0xe88 <eeprom_send_string+0x24>
 			    {
 			    	I2C_WriteDataByte(str[i] - '0');
 			        i++;
 			    }
 				 I2C_MasterStop();
-     e80:	0e 94 29 02 	call	0x452	; 0x452 <I2C_MasterStop>
+     ebc:	0e 94 29 02 	call	0x452	; 0x452 <I2C_MasterStop>
 
 }
-     e84:	0f 90       	pop	r0
-     e86:	0f 90       	pop	r0
-     e88:	0f 90       	pop	r0
-     e8a:	0f 90       	pop	r0
-     e8c:	cf 91       	pop	r28
-     e8e:	df 91       	pop	r29
-     e90:	08 95       	ret
+     ec0:	0f 90       	pop	r0
+     ec2:	0f 90       	pop	r0
+     ec4:	0f 90       	pop	r0
+     ec6:	0f 90       	pop	r0
+     ec8:	cf 91       	pop	r28
+     eca:	df 91       	pop	r29
+     ecc:	08 95       	ret
 
-00000e92 <eeprom_recieve_string>:
+00000ece <eeprom_recieve_string>:
 void eeprom_recieve_string(uint8_t *str){
-     e92:	df 93       	push	r29
-     e94:	cf 93       	push	r28
-     e96:	00 d0       	rcall	.+0      	; 0xe98 <eeprom_recieve_string+0x6>
-     e98:	00 d0       	rcall	.+0      	; 0xe9a <eeprom_recieve_string+0x8>
-     e9a:	cd b7       	in	r28, 0x3d	; 61
-     e9c:	de b7       	in	r29, 0x3e	; 62
-     e9e:	9c 83       	std	Y+4, r25	; 0x04
-     ea0:	8b 83       	std	Y+3, r24	; 0x03
+     ece:	df 93       	push	r29
+     ed0:	cf 93       	push	r28
+     ed2:	00 d0       	rcall	.+0      	; 0xed4 <eeprom_recieve_string+0x6>
+     ed4:	00 d0       	rcall	.+0      	; 0xed6 <eeprom_recieve_string+0x8>
+     ed6:	cd b7       	in	r28, 0x3d	; 61
+     ed8:	de b7       	in	r29, 0x3e	; 62
+     eda:	9c 83       	std	Y+4, r25	; 0x04
+     edc:	8b 83       	std	Y+3, r24	; 0x03
 
 	uint8_t i=0,value;
-     ea2:	1a 82       	std	Y+2, r1	; 0x02
+     ede:	1a 82       	std	Y+2, r1	; 0x02
 				I2C_MasterStart();
-     ea4:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
+     ee0:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
 				I2C_SendSlaveAddressWithWrite(0b01010000);
-     ea8:	80 e5       	ldi	r24, 0x50	; 80
-     eaa:	0e 94 a3 01 	call	0x346	; 0x346 <I2C_SendSlaveAddressWithWrite>
+     ee4:	80 e5       	ldi	r24, 0x50	; 80
+     ee6:	0e 94 a3 01 	call	0x346	; 0x346 <I2C_SendSlaveAddressWithWrite>
 				I2C_WriteDataByte(0b00000001);
-     eae:	81 e0       	ldi	r24, 0x01	; 1
-     eb0:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
-     eb4:	14 c0       	rjmp	.+40     	; 0xede <eeprom_recieve_string+0x4c>
+     eea:	81 e0       	ldi	r24, 0x01	; 1
+     eec:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
+     ef0:	14 c0       	rjmp	.+40     	; 0xf1a <eeprom_recieve_string+0x4c>
 
 			while(i != 4){
 				I2C_MasterStart();
-     eb6:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
+     ef2:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <I2C_MasterStart>
 				I2C_SendSlaveAddressWithRead(0b01010000);
-     eba:	80 e5       	ldi	r24, 0x50	; 80
-     ebc:	0e 94 cc 01 	call	0x398	; 0x398 <I2C_SendSlaveAddressWithRead>
+     ef6:	80 e5       	ldi	r24, 0x50	; 80
+     ef8:	0e 94 cc 01 	call	0x398	; 0x398 <I2C_SendSlaveAddressWithRead>
 				 value= I2C_ReadDataByte();
-     ec0:	0e 94 0f 02 	call	0x41e	; 0x41e <I2C_ReadDataByte>
-     ec4:	89 83       	std	Y+1, r24	; 0x01
+     efc:	0e 94 0f 02 	call	0x41e	; 0x41e <I2C_ReadDataByte>
+     f00:	89 83       	std	Y+1, r24	; 0x01
 				UART_Transmite_String("\r");
-     ec6:	88 ed       	ldi	r24, 0xD8	; 216
-     ec8:	90 e0       	ldi	r25, 0x00	; 0
-     eca:	0e 94 d7 00 	call	0x1ae	; 0x1ae <UART_Transmite_String>
+     f02:	82 ed       	ldi	r24, 0xD2	; 210
+     f04:	90 e0       	ldi	r25, 0x00	; 0
+     f06:	0e 94 d7 00 	call	0x1ae	; 0x1ae <UART_Transmite_String>
 
 
 				 I2C_MasterStop();
-     ece:	0e 94 29 02 	call	0x452	; 0x452 <I2C_MasterStop>
+     f0a:	0e 94 29 02 	call	0x452	; 0x452 <I2C_MasterStop>
 				UART_Transmite(value);
-     ed2:	89 81       	ldd	r24, Y+1	; 0x01
-     ed4:	0e 94 bd 00 	call	0x17a	; 0x17a <UART_Transmite>
+     f0e:	89 81       	ldd	r24, Y+1	; 0x01
+     f10:	0e 94 bd 00 	call	0x17a	; 0x17a <UART_Transmite>
 					i++;
-     ed8:	8a 81       	ldd	r24, Y+2	; 0x02
-     eda:	8f 5f       	subi	r24, 0xFF	; 255
-     edc:	8a 83       	std	Y+2, r24	; 0x02
+     f14:	8a 81       	ldd	r24, Y+2	; 0x02
+     f16:	8f 5f       	subi	r24, 0xFF	; 255
+     f18:	8a 83       	std	Y+2, r24	; 0x02
 	uint8_t i=0,value;
 				I2C_MasterStart();
 				I2C_SendSlaveAddressWithWrite(0b01010000);
 				I2C_WriteDataByte(0b00000001);
 
 			while(i != 4){
-     ede:	8a 81       	ldd	r24, Y+2	; 0x02
-     ee0:	84 30       	cpi	r24, 0x04	; 4
-     ee2:	49 f7       	brne	.-46     	; 0xeb6 <eeprom_recieve_string+0x24>
+     f1a:	8a 81       	ldd	r24, Y+2	; 0x02
+     f1c:	84 30       	cpi	r24, 0x04	; 4
+     f1e:	49 f7       	brne	.-46     	; 0xef2 <eeprom_recieve_string+0x24>
 					i++;
 			}
 
 
 
 }
-     ee4:	0f 90       	pop	r0
-     ee6:	0f 90       	pop	r0
-     ee8:	0f 90       	pop	r0
-     eea:	0f 90       	pop	r0
-     eec:	cf 91       	pop	r28
-     eee:	df 91       	pop	r29
-     ef0:	08 95       	ret
+     f20:	0f 90       	pop	r0
+     f22:	0f 90       	pop	r0
+     f24:	0f 90       	pop	r0
+     f26:	0f 90       	pop	r0
+     f28:	cf 91       	pop	r28
+     f2a:	df 91       	pop	r29
+     f2c:	08 95       	ret
 
-00000ef2 <change_stringToBin>:
+00000f2e <change_stringToBin>:
 
 uint8_t change_stringToBin(uint8_t*str){
-     ef2:	df 93       	push	r29
-     ef4:	cf 93       	push	r28
-     ef6:	cd b7       	in	r28, 0x3d	; 61
-     ef8:	de b7       	in	r29, 0x3e	; 62
-     efa:	2d 97       	sbiw	r28, 0x0d	; 13
-     efc:	0f b6       	in	r0, 0x3f	; 63
-     efe:	f8 94       	cli
-     f00:	de bf       	out	0x3e, r29	; 62
-     f02:	0f be       	out	0x3f, r0	; 63
-     f04:	cd bf       	out	0x3d, r28	; 61
-     f06:	9d 87       	std	Y+13, r25	; 0x0d
-     f08:	8c 87       	std	Y+12, r24	; 0x0c
+     f2e:	df 93       	push	r29
+     f30:	cf 93       	push	r28
+     f32:	cd b7       	in	r28, 0x3d	; 61
+     f34:	de b7       	in	r29, 0x3e	; 62
+     f36:	2d 97       	sbiw	r28, 0x0d	; 13
+     f38:	0f b6       	in	r0, 0x3f	; 63
+     f3a:	f8 94       	cli
+     f3c:	de bf       	out	0x3e, r29	; 62
+     f3e:	0f be       	out	0x3f, r0	; 63
+     f40:	cd bf       	out	0x3d, r28	; 61
+     f42:	9d 87       	std	Y+13, r25	; 0x0d
+     f44:	8c 87       	std	Y+12, r24	; 0x0c
 	uint32_t num=0;
-     f0a:	18 86       	std	Y+8, r1	; 0x08
-     f0c:	19 86       	std	Y+9, r1	; 0x09
-     f0e:	1a 86       	std	Y+10, r1	; 0x0a
-     f10:	1b 86       	std	Y+11, r1	; 0x0b
+     f46:	18 86       	std	Y+8, r1	; 0x08
+     f48:	19 86       	std	Y+9, r1	; 0x09
+     f4a:	1a 86       	std	Y+10, r1	; 0x0a
+     f4c:	1b 86       	std	Y+11, r1	; 0x0b
 	uint32_t bin=0;
-     f12:	1c 82       	std	Y+4, r1	; 0x04
-     f14:	1d 82       	std	Y+5, r1	; 0x05
-     f16:	1e 82       	std	Y+6, r1	; 0x06
-     f18:	1f 82       	std	Y+7, r1	; 0x07
+     f4e:	1c 82       	std	Y+4, r1	; 0x04
+     f50:	1d 82       	std	Y+5, r1	; 0x05
+     f52:	1e 82       	std	Y+6, r1	; 0x06
+     f54:	1f 82       	std	Y+7, r1	; 0x07
 	uint8_t temp=0;
-     f1a:	1b 82       	std	Y+3, r1	; 0x03
+     f56:	1b 82       	std	Y+3, r1	; 0x03
 	uint8_t weight=1;
-     f1c:	81 e0       	ldi	r24, 0x01	; 1
-     f1e:	8a 83       	std	Y+2, r24	; 0x02
+     f58:	81 e0       	ldi	r24, 0x01	; 1
+     f5a:	8a 83       	std	Y+2, r24	; 0x02
 
 	for (uint8_t i = 0 ; i<8 ; i++)
-     f20:	19 82       	std	Y+1, r1	; 0x01
-     f22:	29 c0       	rjmp	.+82     	; 0xf76 <change_stringToBin+0x84>
+     f5c:	19 82       	std	Y+1, r1	; 0x01
+     f5e:	29 c0       	rjmp	.+82     	; 0xfb2 <change_stringToBin+0x84>
 	    {
 		num = num * 10 + str[i] - '0';
-     f24:	88 85       	ldd	r24, Y+8	; 0x08
-     f26:	99 85       	ldd	r25, Y+9	; 0x09
-     f28:	aa 85       	ldd	r26, Y+10	; 0x0a
-     f2a:	bb 85       	ldd	r27, Y+11	; 0x0b
-     f2c:	2a e0       	ldi	r18, 0x0A	; 10
-     f2e:	30 e0       	ldi	r19, 0x00	; 0
-     f30:	40 e0       	ldi	r20, 0x00	; 0
-     f32:	50 e0       	ldi	r21, 0x00	; 0
-     f34:	bc 01       	movw	r22, r24
-     f36:	cd 01       	movw	r24, r26
-     f38:	0e 94 18 08 	call	0x1030	; 0x1030 <__mulsi3>
-     f3c:	ab 01       	movw	r20, r22
-     f3e:	bc 01       	movw	r22, r24
-     f40:	89 81       	ldd	r24, Y+1	; 0x01
-     f42:	28 2f       	mov	r18, r24
-     f44:	30 e0       	ldi	r19, 0x00	; 0
-     f46:	8c 85       	ldd	r24, Y+12	; 0x0c
-     f48:	9d 85       	ldd	r25, Y+13	; 0x0d
-     f4a:	fc 01       	movw	r30, r24
-     f4c:	e2 0f       	add	r30, r18
-     f4e:	f3 1f       	adc	r31, r19
-     f50:	80 81       	ld	r24, Z
-     f52:	88 2f       	mov	r24, r24
-     f54:	90 e0       	ldi	r25, 0x00	; 0
-     f56:	a0 e0       	ldi	r26, 0x00	; 0
-     f58:	b0 e0       	ldi	r27, 0x00	; 0
-     f5a:	84 0f       	add	r24, r20
-     f5c:	95 1f       	adc	r25, r21
-     f5e:	a6 1f       	adc	r26, r22
-     f60:	b7 1f       	adc	r27, r23
-     f62:	c0 97       	sbiw	r24, 0x30	; 48
-     f64:	a1 09       	sbc	r26, r1
-     f66:	b1 09       	sbc	r27, r1
-     f68:	88 87       	std	Y+8, r24	; 0x08
-     f6a:	99 87       	std	Y+9, r25	; 0x09
-     f6c:	aa 87       	std	Y+10, r26	; 0x0a
-     f6e:	bb 87       	std	Y+11, r27	; 0x0b
+     f60:	88 85       	ldd	r24, Y+8	; 0x08
+     f62:	99 85       	ldd	r25, Y+9	; 0x09
+     f64:	aa 85       	ldd	r26, Y+10	; 0x0a
+     f66:	bb 85       	ldd	r27, Y+11	; 0x0b
+     f68:	2a e0       	ldi	r18, 0x0A	; 10
+     f6a:	30 e0       	ldi	r19, 0x00	; 0
+     f6c:	40 e0       	ldi	r20, 0x00	; 0
+     f6e:	50 e0       	ldi	r21, 0x00	; 0
+     f70:	bc 01       	movw	r22, r24
+     f72:	cd 01       	movw	r24, r26
+     f74:	0e 94 36 08 	call	0x106c	; 0x106c <__mulsi3>
+     f78:	ab 01       	movw	r20, r22
+     f7a:	bc 01       	movw	r22, r24
+     f7c:	89 81       	ldd	r24, Y+1	; 0x01
+     f7e:	28 2f       	mov	r18, r24
+     f80:	30 e0       	ldi	r19, 0x00	; 0
+     f82:	8c 85       	ldd	r24, Y+12	; 0x0c
+     f84:	9d 85       	ldd	r25, Y+13	; 0x0d
+     f86:	fc 01       	movw	r30, r24
+     f88:	e2 0f       	add	r30, r18
+     f8a:	f3 1f       	adc	r31, r19
+     f8c:	80 81       	ld	r24, Z
+     f8e:	88 2f       	mov	r24, r24
+     f90:	90 e0       	ldi	r25, 0x00	; 0
+     f92:	a0 e0       	ldi	r26, 0x00	; 0
+     f94:	b0 e0       	ldi	r27, 0x00	; 0
+     f96:	84 0f       	add	r24, r20
+     f98:	95 1f       	adc	r25, r21
+     f9a:	a6 1f       	adc	r26, r22
+     f9c:	b7 1f       	adc	r27, r23
+     f9e:	c0 97       	sbiw	r24, 0x30	; 48
+     fa0:	a1 09       	sbc	r26, r1
+     fa2:	b1 09       	sbc	r27, r1
+     fa4:	88 87       	std	Y+8, r24	; 0x08
+     fa6:	99 87       	std	Y+9, r25	; 0x09
+     fa8:	aa 87       	std	Y+10, r26	; 0x0a
+     faa:	bb 87       	std	Y+11, r27	; 0x0b
 	uint32_t num=0;
 	uint32_t bin=0;
 	uint8_t temp=0;
 	uint8_t weight=1;
 
 	for (uint8_t i = 0 ; i<8 ; i++)
-     f70:	89 81       	ldd	r24, Y+1	; 0x01
-     f72:	8f 5f       	subi	r24, 0xFF	; 255
-     f74:	89 83       	std	Y+1, r24	; 0x01
-     f76:	89 81       	ldd	r24, Y+1	; 0x01
-     f78:	88 30       	cpi	r24, 0x08	; 8
-     f7a:	a0 f2       	brcs	.-88     	; 0xf24 <change_stringToBin+0x32>
-     f7c:	46 c0       	rjmp	.+140    	; 0x100a <change_stringToBin+0x118>
+     fac:	89 81       	ldd	r24, Y+1	; 0x01
+     fae:	8f 5f       	subi	r24, 0xFF	; 255
+     fb0:	89 83       	std	Y+1, r24	; 0x01
+     fb2:	89 81       	ldd	r24, Y+1	; 0x01
+     fb4:	88 30       	cpi	r24, 0x08	; 8
+     fb6:	a0 f2       	brcs	.-88     	; 0xf60 <change_stringToBin+0x32>
+     fb8:	46 c0       	rjmp	.+140    	; 0x1046 <change_stringToBin+0x118>
 		num = num * 10 + str[i] - '0';
 	    }
 
 
 	while(num>0){
 		temp=num%10;
-     f7e:	88 85       	ldd	r24, Y+8	; 0x08
-     f80:	99 85       	ldd	r25, Y+9	; 0x09
-     f82:	aa 85       	ldd	r26, Y+10	; 0x0a
-     f84:	bb 85       	ldd	r27, Y+11	; 0x0b
-     f86:	2a e0       	ldi	r18, 0x0A	; 10
-     f88:	30 e0       	ldi	r19, 0x00	; 0
-     f8a:	40 e0       	ldi	r20, 0x00	; 0
-     f8c:	50 e0       	ldi	r21, 0x00	; 0
-     f8e:	bc 01       	movw	r22, r24
-     f90:	cd 01       	movw	r24, r26
-     f92:	0e 94 37 08 	call	0x106e	; 0x106e <__udivmodsi4>
-     f96:	dc 01       	movw	r26, r24
-     f98:	cb 01       	movw	r24, r22
-     f9a:	8b 83       	std	Y+3, r24	; 0x03
-		num=num/10;
-     f9c:	88 85       	ldd	r24, Y+8	; 0x08
-     f9e:	99 85       	ldd	r25, Y+9	; 0x09
-     fa0:	aa 85       	ldd	r26, Y+10	; 0x0a
-     fa2:	bb 85       	ldd	r27, Y+11	; 0x0b
-     fa4:	2a e0       	ldi	r18, 0x0A	; 10
-     fa6:	30 e0       	ldi	r19, 0x00	; 0
-     fa8:	40 e0       	ldi	r20, 0x00	; 0
-     faa:	50 e0       	ldi	r21, 0x00	; 0
-     fac:	bc 01       	movw	r22, r24
-     fae:	cd 01       	movw	r24, r26
-     fb0:	0e 94 37 08 	call	0x106e	; 0x106e <__udivmodsi4>
-     fb4:	da 01       	movw	r26, r20
-     fb6:	c9 01       	movw	r24, r18
-     fb8:	88 87       	std	Y+8, r24	; 0x08
-     fba:	99 87       	std	Y+9, r25	; 0x09
-     fbc:	aa 87       	std	Y+10, r26	; 0x0a
-     fbe:	bb 87       	std	Y+11, r27	; 0x0b
-		bin=bin+temp*weight;
-     fc0:	8b 81       	ldd	r24, Y+3	; 0x03
-     fc2:	28 2f       	mov	r18, r24
+     fba:	88 85       	ldd	r24, Y+8	; 0x08
+     fbc:	99 85       	ldd	r25, Y+9	; 0x09
+     fbe:	aa 85       	ldd	r26, Y+10	; 0x0a
+     fc0:	bb 85       	ldd	r27, Y+11	; 0x0b
+     fc2:	2a e0       	ldi	r18, 0x0A	; 10
      fc4:	30 e0       	ldi	r19, 0x00	; 0
-     fc6:	8a 81       	ldd	r24, Y+2	; 0x02
-     fc8:	88 2f       	mov	r24, r24
-     fca:	90 e0       	ldi	r25, 0x00	; 0
-     fcc:	ac 01       	movw	r20, r24
-     fce:	24 9f       	mul	r18, r20
-     fd0:	c0 01       	movw	r24, r0
-     fd2:	25 9f       	mul	r18, r21
-     fd4:	90 0d       	add	r25, r0
-     fd6:	34 9f       	mul	r19, r20
-     fd8:	90 0d       	add	r25, r0
-     fda:	11 24       	eor	r1, r1
-     fdc:	9c 01       	movw	r18, r24
-     fde:	44 27       	eor	r20, r20
-     fe0:	37 fd       	sbrc	r19, 7
-     fe2:	40 95       	com	r20
-     fe4:	54 2f       	mov	r21, r20
-     fe6:	8c 81       	ldd	r24, Y+4	; 0x04
-     fe8:	9d 81       	ldd	r25, Y+5	; 0x05
-     fea:	ae 81       	ldd	r26, Y+6	; 0x06
-     fec:	bf 81       	ldd	r27, Y+7	; 0x07
-     fee:	82 0f       	add	r24, r18
-     ff0:	93 1f       	adc	r25, r19
-     ff2:	a4 1f       	adc	r26, r20
-     ff4:	b5 1f       	adc	r27, r21
-     ff6:	8c 83       	std	Y+4, r24	; 0x04
-     ff8:	9d 83       	std	Y+5, r25	; 0x05
-     ffa:	ae 83       	std	Y+6, r26	; 0x06
-     ffc:	bf 83       	std	Y+7, r27	; 0x07
+     fc6:	40 e0       	ldi	r20, 0x00	; 0
+     fc8:	50 e0       	ldi	r21, 0x00	; 0
+     fca:	bc 01       	movw	r22, r24
+     fcc:	cd 01       	movw	r24, r26
+     fce:	0e 94 55 08 	call	0x10aa	; 0x10aa <__udivmodsi4>
+     fd2:	dc 01       	movw	r26, r24
+     fd4:	cb 01       	movw	r24, r22
+     fd6:	8b 83       	std	Y+3, r24	; 0x03
+		num=num/10;
+     fd8:	88 85       	ldd	r24, Y+8	; 0x08
+     fda:	99 85       	ldd	r25, Y+9	; 0x09
+     fdc:	aa 85       	ldd	r26, Y+10	; 0x0a
+     fde:	bb 85       	ldd	r27, Y+11	; 0x0b
+     fe0:	2a e0       	ldi	r18, 0x0A	; 10
+     fe2:	30 e0       	ldi	r19, 0x00	; 0
+     fe4:	40 e0       	ldi	r20, 0x00	; 0
+     fe6:	50 e0       	ldi	r21, 0x00	; 0
+     fe8:	bc 01       	movw	r22, r24
+     fea:	cd 01       	movw	r24, r26
+     fec:	0e 94 55 08 	call	0x10aa	; 0x10aa <__udivmodsi4>
+     ff0:	da 01       	movw	r26, r20
+     ff2:	c9 01       	movw	r24, r18
+     ff4:	88 87       	std	Y+8, r24	; 0x08
+     ff6:	99 87       	std	Y+9, r25	; 0x09
+     ff8:	aa 87       	std	Y+10, r26	; 0x0a
+     ffa:	bb 87       	std	Y+11, r27	; 0x0b
+		bin=bin+temp*weight;
+     ffc:	8b 81       	ldd	r24, Y+3	; 0x03
+     ffe:	28 2f       	mov	r18, r24
+    1000:	30 e0       	ldi	r19, 0x00	; 0
+    1002:	8a 81       	ldd	r24, Y+2	; 0x02
+    1004:	88 2f       	mov	r24, r24
+    1006:	90 e0       	ldi	r25, 0x00	; 0
+    1008:	ac 01       	movw	r20, r24
+    100a:	24 9f       	mul	r18, r20
+    100c:	c0 01       	movw	r24, r0
+    100e:	25 9f       	mul	r18, r21
+    1010:	90 0d       	add	r25, r0
+    1012:	34 9f       	mul	r19, r20
+    1014:	90 0d       	add	r25, r0
+    1016:	11 24       	eor	r1, r1
+    1018:	9c 01       	movw	r18, r24
+    101a:	44 27       	eor	r20, r20
+    101c:	37 fd       	sbrc	r19, 7
+    101e:	40 95       	com	r20
+    1020:	54 2f       	mov	r21, r20
+    1022:	8c 81       	ldd	r24, Y+4	; 0x04
+    1024:	9d 81       	ldd	r25, Y+5	; 0x05
+    1026:	ae 81       	ldd	r26, Y+6	; 0x06
+    1028:	bf 81       	ldd	r27, Y+7	; 0x07
+    102a:	82 0f       	add	r24, r18
+    102c:	93 1f       	adc	r25, r19
+    102e:	a4 1f       	adc	r26, r20
+    1030:	b5 1f       	adc	r27, r21
+    1032:	8c 83       	std	Y+4, r24	; 0x04
+    1034:	9d 83       	std	Y+5, r25	; 0x05
+    1036:	ae 83       	std	Y+6, r26	; 0x06
+    1038:	bf 83       	std	Y+7, r27	; 0x07
 		weight*=2;
-     ffe:	8a 81       	ldd	r24, Y+2	; 0x02
-    1000:	88 2f       	mov	r24, r24
-    1002:	90 e0       	ldi	r25, 0x00	; 0
-    1004:	88 0f       	add	r24, r24
-    1006:	99 1f       	adc	r25, r25
-    1008:	8a 83       	std	Y+2, r24	; 0x02
+    103a:	8a 81       	ldd	r24, Y+2	; 0x02
+    103c:	88 2f       	mov	r24, r24
+    103e:	90 e0       	ldi	r25, 0x00	; 0
+    1040:	88 0f       	add	r24, r24
+    1042:	99 1f       	adc	r25, r25
+    1044:	8a 83       	std	Y+2, r24	; 0x02
 	    {
 		num = num * 10 + str[i] - '0';
 	    }
 
 
 	while(num>0){
-    100a:	88 85       	ldd	r24, Y+8	; 0x08
-    100c:	99 85       	ldd	r25, Y+9	; 0x09
-    100e:	aa 85       	ldd	r26, Y+10	; 0x0a
-    1010:	bb 85       	ldd	r27, Y+11	; 0x0b
-    1012:	00 97       	sbiw	r24, 0x00	; 0
-    1014:	a1 05       	cpc	r26, r1
-    1016:	b1 05       	cpc	r27, r1
-    1018:	09 f0       	breq	.+2      	; 0x101c <change_stringToBin+0x12a>
-    101a:	b1 cf       	rjmp	.-158    	; 0xf7e <change_stringToBin+0x8c>
+    1046:	88 85       	ldd	r24, Y+8	; 0x08
+    1048:	99 85       	ldd	r25, Y+9	; 0x09
+    104a:	aa 85       	ldd	r26, Y+10	; 0x0a
+    104c:	bb 85       	ldd	r27, Y+11	; 0x0b
+    104e:	00 97       	sbiw	r24, 0x00	; 0
+    1050:	a1 05       	cpc	r26, r1
+    1052:	b1 05       	cpc	r27, r1
+    1054:	09 f0       	breq	.+2      	; 0x1058 <change_stringToBin+0x12a>
+    1056:	b1 cf       	rjmp	.-158    	; 0xfba <change_stringToBin+0x8c>
 		temp=num%10;
 		num=num/10;
 		bin=bin+temp*weight;
 		weight*=2;
 	}
 return bin;
-    101c:	8c 81       	ldd	r24, Y+4	; 0x04
+    1058:	8c 81       	ldd	r24, Y+4	; 0x04
 }
-    101e:	2d 96       	adiw	r28, 0x0d	; 13
-    1020:	0f b6       	in	r0, 0x3f	; 63
-    1022:	f8 94       	cli
-    1024:	de bf       	out	0x3e, r29	; 62
-    1026:	0f be       	out	0x3f, r0	; 63
-    1028:	cd bf       	out	0x3d, r28	; 61
-    102a:	cf 91       	pop	r28
-    102c:	df 91       	pop	r29
-    102e:	08 95       	ret
+    105a:	2d 96       	adiw	r28, 0x0d	; 13
+    105c:	0f b6       	in	r0, 0x3f	; 63
+    105e:	f8 94       	cli
+    1060:	de bf       	out	0x3e, r29	; 62
+    1062:	0f be       	out	0x3f, r0	; 63
+    1064:	cd bf       	out	0x3d, r28	; 61
+    1066:	cf 91       	pop	r28
+    1068:	df 91       	pop	r29
+    106a:	08 95       	ret
 
-00001030 <__mulsi3>:
-    1030:	62 9f       	mul	r22, r18
-    1032:	d0 01       	movw	r26, r0
-    1034:	73 9f       	mul	r23, r19
-    1036:	f0 01       	movw	r30, r0
-    1038:	82 9f       	mul	r24, r18
-    103a:	e0 0d       	add	r30, r0
-    103c:	f1 1d       	adc	r31, r1
-    103e:	64 9f       	mul	r22, r20
-    1040:	e0 0d       	add	r30, r0
-    1042:	f1 1d       	adc	r31, r1
-    1044:	92 9f       	mul	r25, r18
-    1046:	f0 0d       	add	r31, r0
-    1048:	83 9f       	mul	r24, r19
-    104a:	f0 0d       	add	r31, r0
-    104c:	74 9f       	mul	r23, r20
-    104e:	f0 0d       	add	r31, r0
-    1050:	65 9f       	mul	r22, r21
-    1052:	f0 0d       	add	r31, r0
-    1054:	99 27       	eor	r25, r25
-    1056:	72 9f       	mul	r23, r18
-    1058:	b0 0d       	add	r27, r0
-    105a:	e1 1d       	adc	r30, r1
-    105c:	f9 1f       	adc	r31, r25
-    105e:	63 9f       	mul	r22, r19
-    1060:	b0 0d       	add	r27, r0
-    1062:	e1 1d       	adc	r30, r1
-    1064:	f9 1f       	adc	r31, r25
-    1066:	bd 01       	movw	r22, r26
-    1068:	cf 01       	movw	r24, r30
-    106a:	11 24       	eor	r1, r1
-    106c:	08 95       	ret
+0000106c <__mulsi3>:
+    106c:	62 9f       	mul	r22, r18
+    106e:	d0 01       	movw	r26, r0
+    1070:	73 9f       	mul	r23, r19
+    1072:	f0 01       	movw	r30, r0
+    1074:	82 9f       	mul	r24, r18
+    1076:	e0 0d       	add	r30, r0
+    1078:	f1 1d       	adc	r31, r1
+    107a:	64 9f       	mul	r22, r20
+    107c:	e0 0d       	add	r30, r0
+    107e:	f1 1d       	adc	r31, r1
+    1080:	92 9f       	mul	r25, r18
+    1082:	f0 0d       	add	r31, r0
+    1084:	83 9f       	mul	r24, r19
+    1086:	f0 0d       	add	r31, r0
+    1088:	74 9f       	mul	r23, r20
+    108a:	f0 0d       	add	r31, r0
+    108c:	65 9f       	mul	r22, r21
+    108e:	f0 0d       	add	r31, r0
+    1090:	99 27       	eor	r25, r25
+    1092:	72 9f       	mul	r23, r18
+    1094:	b0 0d       	add	r27, r0
+    1096:	e1 1d       	adc	r30, r1
+    1098:	f9 1f       	adc	r31, r25
+    109a:	63 9f       	mul	r22, r19
+    109c:	b0 0d       	add	r27, r0
+    109e:	e1 1d       	adc	r30, r1
+    10a0:	f9 1f       	adc	r31, r25
+    10a2:	bd 01       	movw	r22, r26
+    10a4:	cf 01       	movw	r24, r30
+    10a6:	11 24       	eor	r1, r1
+    10a8:	08 95       	ret
 
-0000106e <__udivmodsi4>:
-    106e:	a1 e2       	ldi	r26, 0x21	; 33
-    1070:	1a 2e       	mov	r1, r26
-    1072:	aa 1b       	sub	r26, r26
-    1074:	bb 1b       	sub	r27, r27
-    1076:	fd 01       	movw	r30, r26
-    1078:	0d c0       	rjmp	.+26     	; 0x1094 <__udivmodsi4_ep>
+000010aa <__udivmodsi4>:
+    10aa:	a1 e2       	ldi	r26, 0x21	; 33
+    10ac:	1a 2e       	mov	r1, r26
+    10ae:	aa 1b       	sub	r26, r26
+    10b0:	bb 1b       	sub	r27, r27
+    10b2:	fd 01       	movw	r30, r26
+    10b4:	0d c0       	rjmp	.+26     	; 0x10d0 <__udivmodsi4_ep>
 
-0000107a <__udivmodsi4_loop>:
-    107a:	aa 1f       	adc	r26, r26
-    107c:	bb 1f       	adc	r27, r27
-    107e:	ee 1f       	adc	r30, r30
-    1080:	ff 1f       	adc	r31, r31
-    1082:	a2 17       	cp	r26, r18
-    1084:	b3 07       	cpc	r27, r19
-    1086:	e4 07       	cpc	r30, r20
-    1088:	f5 07       	cpc	r31, r21
-    108a:	20 f0       	brcs	.+8      	; 0x1094 <__udivmodsi4_ep>
-    108c:	a2 1b       	sub	r26, r18
-    108e:	b3 0b       	sbc	r27, r19
-    1090:	e4 0b       	sbc	r30, r20
-    1092:	f5 0b       	sbc	r31, r21
+000010b6 <__udivmodsi4_loop>:
+    10b6:	aa 1f       	adc	r26, r26
+    10b8:	bb 1f       	adc	r27, r27
+    10ba:	ee 1f       	adc	r30, r30
+    10bc:	ff 1f       	adc	r31, r31
+    10be:	a2 17       	cp	r26, r18
+    10c0:	b3 07       	cpc	r27, r19
+    10c2:	e4 07       	cpc	r30, r20
+    10c4:	f5 07       	cpc	r31, r21
+    10c6:	20 f0       	brcs	.+8      	; 0x10d0 <__udivmodsi4_ep>
+    10c8:	a2 1b       	sub	r26, r18
+    10ca:	b3 0b       	sbc	r27, r19
+    10cc:	e4 0b       	sbc	r30, r20
+    10ce:	f5 0b       	sbc	r31, r21
 
-00001094 <__udivmodsi4_ep>:
-    1094:	66 1f       	adc	r22, r22
-    1096:	77 1f       	adc	r23, r23
-    1098:	88 1f       	adc	r24, r24
-    109a:	99 1f       	adc	r25, r25
-    109c:	1a 94       	dec	r1
-    109e:	69 f7       	brne	.-38     	; 0x107a <__udivmodsi4_loop>
-    10a0:	60 95       	com	r22
-    10a2:	70 95       	com	r23
-    10a4:	80 95       	com	r24
-    10a6:	90 95       	com	r25
-    10a8:	9b 01       	movw	r18, r22
-    10aa:	ac 01       	movw	r20, r24
-    10ac:	bd 01       	movw	r22, r26
-    10ae:	cf 01       	movw	r24, r30
-    10b0:	08 95       	ret
+000010d0 <__udivmodsi4_ep>:
+    10d0:	66 1f       	adc	r22, r22
+    10d2:	77 1f       	adc	r23, r23
+    10d4:	88 1f       	adc	r24, r24
+    10d6:	99 1f       	adc	r25, r25
+    10d8:	1a 94       	dec	r1
+    10da:	69 f7       	brne	.-38     	; 0x10b6 <__udivmodsi4_loop>
+    10dc:	60 95       	com	r22
+    10de:	70 95       	com	r23
+    10e0:	80 95       	com	r24
+    10e2:	90 95       	com	r25
+    10e4:	9b 01       	movw	r18, r22
+    10e6:	ac 01       	movw	r20, r24
+    10e8:	bd 01       	movw	r22, r26
+    10ea:	cf 01       	movw	r24, r30
+    10ec:	08 95       	ret
 
-000010b2 <_exit>:
-    10b2:	f8 94       	cli
+000010ee <_exit>:
+    10ee:	f8 94       	cli
 
-000010b4 <__stop_program>:
-    10b4:	ff cf       	rjmp	.-2      	; 0x10b4 <__stop_program>
+000010f0 <__stop_program>:
+    10f0:	ff cf       	rjmp	.-2      	; 0x10f0 <__stop_program>
