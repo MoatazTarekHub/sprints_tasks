@@ -340,77 +340,78 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
  *(.fini0)
                 0x00001ab8                _etext = .
 
-.data           0x00800060       0x94 load address 0x00001ab8
+.data           0x00800060       0x8e load address 0x00001ab8
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  .data          0x00800060        0x0 ./MCAL/UART/Uart_Program.o
  .data          0x00800060        0x0 ./MCAL/DIO/DIO.o
- .data          0x00800060       0x8c ./APP/App.o
- .data          0x008000ec        0x0 ./APP/main.o
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .data          0x008000ec        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .data          0x008000ec        0x8 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
-                0x008000ec                __thenan_sf
- .data          0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .data          0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .data          0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .data          0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .data          0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x00800060       0x85 ./APP/App.o
+ .data          0x008000e5        0x0 ./APP/main.o
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .data          0x008000e5        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .data          0x008000e5        0x8 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+                0x008000e5                __thenan_sf
+ .data          0x008000ed        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x008000ed        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .data          0x008000ed        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .data          0x008000ed        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .data          0x008000ed        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x008000f4                . = ALIGN (0x2)
-                0x008000f4                _edata = .
-                0x008000f4                PROVIDE (__data_end, .)
+                0x008000ee                . = ALIGN (0x2)
+ *fill*         0x008000ed        0x1 00
+                0x008000ee                _edata = .
+                0x008000ee                PROVIDE (__data_end, .)
 
-.bss            0x008000f4       0x64
-                0x008000f4                PROVIDE (__bss_start, .)
+.bss            0x008000ee       0x64
+                0x008000ee                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x008000f4        0x0 ./MCAL/UART/Uart_Program.o
- .bss           0x008000f4        0x0 ./MCAL/DIO/DIO.o
- .bss           0x008000f4        0x0 ./APP/App.o
- .bss           0x008000f4        0x0 ./APP/main.o
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x008000f4        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x008000ee        0x0 ./MCAL/UART/Uart_Program.o
+ .bss           0x008000ee        0x0 ./MCAL/DIO/DIO.o
+ .bss           0x008000ee        0x0 ./APP/App.o
+ .bss           0x008000ee        0x0 ./APP/main.o
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x008000ee        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x008000f4       0x64 ./APP/App.o
-                0x008000f4                recive
-                0x00800158                PROVIDE (__bss_end, .)
+ COMMON         0x008000ee       0x64 ./APP/App.o
+                0x008000ee                recive
+                0x00800152                PROVIDE (__bss_end, .)
                 0x00001ab8                __data_load_start = LOADADDR (.data)
-                0x00001b4c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001b46                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800158        0x0
-                0x00800158                PROVIDE (__noinit_start, .)
+.noinit         0x00800152        0x0
+                0x00800152                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800158                PROVIDE (__noinit_end, .)
-                0x00800158                _end = .
-                0x00800158                PROVIDE (__heap_start, .)
+                0x00800152                PROVIDE (__noinit_end, .)
+                0x00800152                _end = .
+                0x00800152                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -428,19 +429,19 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1404
+.stab           0x00000000     0x1434
  *(.stab)
- .stab          0x00000000      0x4ec ./MCAL/UART/Uart_Program.o
- .stab          0x000004ec      0x804 ./MCAL/DIO/DIO.o
-                                0x810 (size before relaxing)
- .stab          0x00000cf0      0x60c ./APP/App.o
-                                0x6fc (size before relaxing)
- .stab          0x000012fc      0x108 ./APP/main.o
+ .stab          0x00000000      0x504 ./MCAL/UART/Uart_Program.o
+ .stab          0x00000504      0x81c ./MCAL/DIO/DIO.o
+                                0x828 (size before relaxing)
+ .stab          0x00000d20      0x60c ./APP/App.o
+                                0x714 (size before relaxing)
+ .stab          0x0000132c      0x108 ./APP/main.o
                                 0x114 (size before relaxing)
 
-.stabstr        0x00000000      0xf9a
+.stabstr        0x00000000     0x100e
  *(.stabstr)
- .stabstr       0x00000000      0xf9a ./MCAL/UART/Uart_Program.o
+ .stabstr       0x00000000     0x100e ./MCAL/UART/Uart_Program.o
 
 .stab.excl
  *(.stab.excl)

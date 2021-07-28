@@ -3,11 +3,11 @@ SPI_Avr_S_Sprints.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000bb6  00000000  00000000  00000054  2**1
+  0 .text         00000b9e  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .stab         0000108c  00000000  00000000  00000c0c  2**2
+  1 .stab         00001068  00000000  00000000  00000bf4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  2 .stabstr      00000eaa  00000000  00000000  00001c98  2**0
+  2 .stabstr      00000eaa  00000000  00000000  00001c5c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -43,7 +43,7 @@ Disassembly of section .text:
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
   60:	0e 94 a5 05 	call	0xb4a	; 0xb4a <main>
-  64:	0c 94 d9 05 	jmp	0xbb2	; 0xbb2 <_exit>
+  64:	0c 94 cd 05 	jmp	0xb9a	; 0xb9a <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -1839,48 +1839,35 @@ int main(void){
  b70:	e9 f7       	brne	.-6      	; 0xb6c <main+0x22>
 			SPI_SlaveInit();
  b72:	0e 94 74 00 	call	0xe8	; 0xe8 <SPI_SlaveInit>
-			DIO_voidSetPortDirection(PORT_C,0xff);
- b76:	82 e0       	ldi	r24, 0x02	; 2
- b78:	6f ef       	ldi	r22, 0xFF	; 255
- b7a:	0e 94 88 04 	call	0x910	; 0x910 <DIO_voidSetPortDirection>
+			//DIO_voidSetPortDirection(PORT_C,0xff);
 			//DIO_voidSetPortValue(PORT_C,0xff);
 
 //_delay_ms(100);
 			DIO_voidSetPinValue(PORT_C,PIN4,LOW);//ss
- b7e:	82 e0       	ldi	r24, 0x02	; 2
- b80:	64 e0       	ldi	r22, 0x04	; 4
- b82:	40 e0       	ldi	r20, 0x00	; 0
- b84:	0e 94 31 01 	call	0x262	; 0x262 <DIO_voidSetPinValue>
+ b76:	82 e0       	ldi	r24, 0x02	; 2
+ b78:	64 e0       	ldi	r22, 0x04	; 4
+ b7a:	40 e0       	ldi	r20, 0x00	; 0
+ b7c:	0e 94 31 01 	call	0x262	; 0x262 <DIO_voidSetPinValue>
 
 			data=SPI_SlaveReceive();
- b88:	0e 94 b6 00 	call	0x16c	; 0x16c <SPI_SlaveReceive>
- b8c:	89 83       	std	Y+1, r24	; 0x01
+ b80:	0e 94 b6 00 	call	0x16c	; 0x16c <SPI_SlaveReceive>
+ b84:	89 83       	std	Y+1, r24	; 0x01
 			DIO_voidSetPinValue(PORT_C,PIN5,LOW);//ss
- b8e:	82 e0       	ldi	r24, 0x02	; 2
- b90:	65 e0       	ldi	r22, 0x05	; 5
- b92:	40 e0       	ldi	r20, 0x00	; 0
- b94:	0e 94 31 01 	call	0x262	; 0x262 <DIO_voidSetPinValue>
+ b86:	82 e0       	ldi	r24, 0x02	; 2
+ b88:	65 e0       	ldi	r22, 0x05	; 5
+ b8a:	40 e0       	ldi	r20, 0x00	; 0
+ b8c:	0e 94 31 01 	call	0x262	; 0x262 <DIO_voidSetPinValue>
 
 			//SPI_Recive_String(string);
 
 			DIO_voidSetPortValue(PORT_C,data);
- b98:	82 e0       	ldi	r24, 0x02	; 2
- b9a:	69 81       	ldd	r22, Y+1	; 0x01
- b9c:	0e 94 3f 04 	call	0x87e	; 0x87e <DIO_voidSetPortValue>
-			//SPI_MasterTransmit('a');
-			if (data=='a'){
- ba0:	89 81       	ldd	r24, Y+1	; 0x01
- ba2:	81 36       	cpi	r24, 0x61	; 97
- ba4:	29 f4       	brne	.+10     	; 0xbb0 <main+0x66>
-			DIO_voidSetPinValue(PORT_C,PIN0,LOW);
- ba6:	82 e0       	ldi	r24, 0x02	; 2
- ba8:	60 e0       	ldi	r22, 0x00	; 0
- baa:	40 e0       	ldi	r20, 0x00	; 0
- bac:	0e 94 31 01 	call	0x262	; 0x262 <DIO_voidSetPinValue>
- bb0:	ff cf       	rjmp	.-2      	; 0xbb0 <main+0x66>
+ b90:	82 e0       	ldi	r24, 0x02	; 2
+ b92:	69 81       	ldd	r22, Y+1	; 0x01
+ b94:	0e 94 3f 04 	call	0x87e	; 0x87e <DIO_voidSetPortValue>
+ b98:	ff cf       	rjmp	.-2      	; 0xb98 <main+0x4e>
 
-00000bb2 <_exit>:
- bb2:	f8 94       	cli
+00000b9a <_exit>:
+ b9a:	f8 94       	cli
 
-00000bb4 <__stop_program>:
- bb4:	ff cf       	rjmp	.-2      	; 0xbb4 <__stop_program>
+00000b9c <__stop_program>:
+ b9c:	ff cf       	rjmp	.-2      	; 0xb9c <__stop_program>

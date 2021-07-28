@@ -2296,8 +2296,8 @@ uint8_t check(uint8_t *str,uint8_t address){
 		I2C_SendSlaveAddressWithWrite(0b01010000);
      df8:	80 e5       	ldi	r24, 0x50	; 80
      dfa:	0e 94 a3 01 	call	0x346	; 0x346 <I2C_SendSlaveAddressWithWrite>
-				I2C_WriteDataByte(0b00000001);
-     dfe:	81 e0       	ldi	r24, 0x01	; 1
+				I2C_WriteDataByte(address);
+     dfe:	8c 81       	ldd	r24, Y+4	; 0x04
      e00:	0e 94 f5 01 	call	0x3ea	; 0x3ea <I2C_WriteDataByte>
 				 I2C_WriteDataByte('c');
      e04:	83 e6       	ldi	r24, 0x63	; 99

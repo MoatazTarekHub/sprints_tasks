@@ -5,31 +5,31 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00001ab8  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000094  00800060  00001ab8  00001b4c  2**0
+  1 .data         0000008e  00800060  00001ab8  00001b4c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000064  008000f4  008000f4  00001be0  2**0
+  2 .bss          00000064  008000ee  008000ee  00001bda  2**0
                   ALLOC
-  3 .stab         00001404  00000000  00000000  00001be0  2**2
+  3 .stab         00001434  00000000  00000000  00001bdc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00000f9a  00000000  00000000  00002fe4  2**0
+  4 .stabstr      0000100e  00000000  00000000  00003010  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000140  00000000  00000000  00003f7e  2**0
+  5 .debug_aranges 00000140  00000000  00000000  0000401e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000170  00000000  00000000  000040be  2**0
+  6 .debug_pubnames 00000170  00000000  00000000  0000415e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00001c49  00000000  00000000  0000422e  2**0
+  7 .debug_info   00001c49  00000000  00000000  000042ce  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000eeb  00000000  00000000  00005e77  2**0
+  8 .debug_abbrev 00000eeb  00000000  00000000  00005f17  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000dad  00000000  00000000  00006d62  2**0
+  9 .debug_line   00000dad  00000000  00000000  00006e02  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000160  00000000  00000000  00007b10  2**2
+ 10 .debug_frame  00000160  00000000  00000000  00007bb0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000028d  00000000  00000000  00007c70  2**0
+ 11 .debug_str    0000028d  00000000  00000000  00007d10  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000007ce  00000000  00000000  00007efd  2**0
+ 12 .debug_loc    000007ce  00000000  00000000  00007f9d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  000086cb  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  0000876b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -78,13 +78,13 @@ Disassembly of section .text:
       6e:	0d 92       	st	X+, r0
 
 00000070 <.do_copy_data_start>:
-      70:	a4 3f       	cpi	r26, 0xF4	; 244
+      70:	ae 3e       	cpi	r26, 0xEE	; 238
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
 
 00000076 <__do_clear_bss>:
       76:	11 e0       	ldi	r17, 0x01	; 1
-      78:	a4 ef       	ldi	r26, 0xF4	; 244
+      78:	ae ee       	ldi	r26, 0xEE	; 238
       7a:	b0 e0       	ldi	r27, 0x00	; 0
       7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -92,7 +92,7 @@ Disassembly of section .text:
       7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-      80:	a8 35       	cpi	r26, 0x58	; 88
+      80:	a2 35       	cpi	r26, 0x52	; 82
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
       86:	0e 94 1a 0d 	call	0x1a34	; 0x1a34 <main>
@@ -173,7 +173,7 @@ Disassembly of section .text:
      120:	98 17       	cp	r25, r24
      122:	09 f4       	brne	.+2      	; 0x126 <_fpadd_parts+0x3c>
      124:	28 c1       	rjmp	.+592    	; 0x376 <_fpadd_parts+0x28c>
-     126:	ac ee       	ldi	r26, 0xEC	; 236
+     126:	a5 ee       	ldi	r26, 0xE5	; 229
      128:	b0 e0       	ldi	r27, 0x00	; 0
      12a:	25 c1       	rjmp	.+586    	; 0x376 <_fpadd_parts+0x28c>
      12c:	84 30       	cpi	r24, 0x04	; 4
@@ -602,7 +602,7 @@ Disassembly of section .text:
      48e:	29 f4       	brne	.+10     	; 0x49a <__mulsf3+0x5c>
      490:	92 30       	cpi	r25, 0x02	; 2
      492:	81 f4       	brne	.+32     	; 0x4b4 <__mulsf3+0x76>
-     494:	8c ee       	ldi	r24, 0xEC	; 236
+     494:	85 ee       	ldi	r24, 0xE5	; 229
      496:	90 e0       	ldi	r25, 0x00	; 0
      498:	c6 c0       	rjmp	.+396    	; 0x626 <__mulsf3+0x1e8>
      49a:	92 30       	cpi	r25, 0x02	; 2
@@ -1528,34 +1528,33 @@ UBRRH=(uint8_t)(UBRR_HELP);
      baa:	89 81       	ldd	r24, Y+1	; 0x01
      bac:	80 68       	ori	r24, 0x80	; 128
      bae:	89 83       	std	Y+1, r24	; 0x01
-
+	//asynch.
+	CLRBIT(UCSRC_HELP,6);
+     bb0:	89 81       	ldd	r24, Y+1	; 0x01
+     bb2:	8f 7b       	andi	r24, 0xBF	; 191
+     bb4:	89 83       	std	Y+1, r24	; 0x01
 	// 8bit data
 #if  character_size == eight
 	SETBIT  (UCSRC_HELP,1);
-     bb0:	89 81       	ldd	r24, Y+1	; 0x01
-     bb2:	82 60       	ori	r24, 0x02	; 2
-     bb4:	89 83       	std	Y+1, r24	; 0x01
-	SETBIT  (UCSRC_HELP,2);
      bb6:	89 81       	ldd	r24, Y+1	; 0x01
-     bb8:	84 60       	ori	r24, 0x04	; 4
+     bb8:	82 60       	ori	r24, 0x02	; 2
      bba:	89 83       	std	Y+1, r24	; 0x01
+	SETBIT  (UCSRC_HELP,2);
+     bbc:	89 81       	ldd	r24, Y+1	; 0x01
+     bbe:	84 60       	ori	r24, 0x04	; 4
+     bc0:	89 83       	std	Y+1, r24	; 0x01
 	CLRBIT(UCSRB,2);
-     bbc:	aa e2       	ldi	r26, 0x2A	; 42
-     bbe:	b0 e0       	ldi	r27, 0x00	; 0
-     bc0:	ea e2       	ldi	r30, 0x2A	; 42
-     bc2:	f0 e0       	ldi	r31, 0x00	; 0
-     bc4:	80 81       	ld	r24, Z
-     bc6:	8b 7f       	andi	r24, 0xFB	; 251
-     bc8:	8c 93       	st	X, r24
-	SETBIT (UCSRC_HELP,2);
+     bc2:	aa e2       	ldi	r26, 0x2A	; 42
+     bc4:	b0 e0       	ldi	r27, 0x00	; 0
+     bc6:	ea e2       	ldi	r30, 0x2A	; 42
+     bc8:	f0 e0       	ldi	r31, 0x00	; 0
+     bca:	80 81       	ld	r24, Z
+     bcc:	8b 7f       	andi	r24, 0xFB	; 251
+     bce:	8c 93       	st	X, r24
 	SETBIT (UCSRB,2);
 
 #endif
-	//asynch.
-	CLRBIT(UCSRC_HELP,6);
-     bca:	89 81       	ldd	r24, Y+1	; 0x01
-     bcc:	8f 7b       	andi	r24, 0xBF	; 191
-     bce:	89 83       	std	Y+1, r24	; 0x01
+
 #if clock_polarity_TXD == Rising
 	CLRBIT(UCSRC_HELP, 0);
      bd0:	89 81       	ldd	r24, Y+1	; 0x01
@@ -3263,7 +3262,7 @@ void check(uint8_t *str){
     165a:	07 96       	adiw	r24, 0x07	; 7
     165c:	9a ab       	std	Y+50, r25	; 0x32
     165e:	89 ab       	std	Y+49, r24	; 0x31
-    1660:	ad ea       	ldi	r26, 0xAD	; 173
+    1660:	a6 ea       	ldi	r26, 0xA6	; 166
     1662:	b0 e0       	ldi	r27, 0x00	; 0
     1664:	bc ab       	std	Y+52, r27	; 0x34
     1666:	ab ab       	std	Y+51, r26	; 0x33
@@ -3299,7 +3298,7 @@ void check(uint8_t *str){
     16a2:	41 96       	adiw	r24, 0x11	; 17
     16a4:	9f ab       	std	Y+55, r25	; 0x37
     16a6:	8e ab       	std	Y+54, r24	; 0x36
-    16a8:	a7 eb       	ldi	r26, 0xB7	; 183
+    16a8:	a0 eb       	ldi	r26, 0xB0	; 176
     16aa:	b0 e0       	ldi	r27, 0x00	; 0
     16ac:	b9 af       	std	Y+57, r27	; 0x39
     16ae:	a8 af       	std	Y+56, r26	; 0x38
@@ -3339,7 +3338,7 @@ void check(uint8_t *str){
     16f2:	4b 96       	adiw	r24, 0x1b	; 27
     16f4:	9c af       	std	Y+60, r25	; 0x3c
     16f6:	8b af       	std	Y+59, r24	; 0x3b
-    16f8:	a1 ec       	ldi	r26, 0xC1	; 193
+    16f8:	aa eb       	ldi	r26, 0xBA	; 186
     16fa:	b0 e0       	ldi	r27, 0x00	; 0
     16fc:	be af       	std	Y+62, r27	; 0x3e
     16fe:	ad af       	std	Y+61, r26	; 0x3d
@@ -3498,7 +3497,7 @@ void check(uint8_t *str){
     17fa:	8f 3f       	cpi	r24, 0xFF	; 255
     17fc:	9a 07       	cpc	r25, r26
     17fe:	29 f4       	brne	.+10     	; 0x180a <check+0x1e2>
-			UART_Transmite_String("\r\n error da5l stat 3dla");
+			UART_Transmite_String("\r\n error  state ");
     1800:	80 e6       	ldi	r24, 0x60	; 96
     1802:	90 e0       	ldi	r25, 0x00	; 0
     1804:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
@@ -3512,7 +3511,7 @@ void check(uint8_t *str){
     180e:	00 97       	sbiw	r24, 0x00	; 0
     1810:	a1 f4       	brne	.+40     	; 0x183a <check+0x212>
 		UART_Transmite_String("\r\n green led on");
-    1812:	88 e7       	ldi	r24, 0x78	; 120
+    1812:	81 e7       	ldi	r24, 0x71	; 113
     1814:	90 e0       	ldi	r25, 0x00	; 0
     1816:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
 		 DIO_voidSetPinValue(PORT_A,PIN0,HIGH);
@@ -3541,7 +3540,7 @@ void check(uint8_t *str){
     1840:	91 05       	cpc	r25, r1
     1842:	a1 f4       	brne	.+40     	; 0x186c <check+0x244>
 		UART_Transmite_String("\r\n Yellow led on");
-    1844:	88 e8       	ldi	r24, 0x88	; 136
+    1844:	81 e8       	ldi	r24, 0x81	; 129
     1846:	90 e0       	ldi	r25, 0x00	; 0
     1848:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
 		 DIO_voidSetPinValue(PORT_A,PIN1,HIGH);
@@ -3569,7 +3568,7 @@ void check(uint8_t *str){
     1872:	91 05       	cpc	r25, r1
     1874:	a1 f4       	brne	.+40     	; 0x189e <check+0x276>
 		UART_Transmite_String("\r\n red led on");
-    1876:	89 e9       	ldi	r24, 0x99	; 153
+    1876:	82 e9       	ldi	r24, 0x92	; 146
     1878:	90 e0       	ldi	r25, 0x00	; 0
     187a:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
 		 DIO_voidSetPinValue(PORT_A,PIN2,HIGH);
@@ -3597,7 +3596,7 @@ void check(uint8_t *str){
     18a4:	91 05       	cpc	r25, r1
     18a6:	21 f4       	brne	.+8      	; 0x18b0 <check+0x288>
 		UART_Transmite_String("\r\n OK");
-    18a8:	87 ea       	ldi	r24, 0xA7	; 167
+    18a8:	80 ea       	ldi	r24, 0xA0	; 160
     18aa:	90 e0       	ldi	r25, 0x00	; 0
     18ac:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
 
@@ -3636,12 +3635,12 @@ void App_Init(void){
     18dc:	90 e0       	ldi	r25, 0x00	; 0
     18de:	0e 94 a3 05 	call	0xb46	; 0xb46 <UART_Init>
 	 UART_Recive_String(recive);
-    18e2:	84 ef       	ldi	r24, 0xF4	; 244
+    18e2:	8e ee       	ldi	r24, 0xEE	; 238
     18e4:	90 e0       	ldi	r25, 0x00	; 0
     18e6:	0e 94 5d 06 	call	0xcba	; 0xcba <UART_Recive_String>
 
 	 UART_Transmite_String(recive);
-    18ea:	84 ef       	ldi	r24, 0xF4	; 244
+    18ea:	8e ee       	ldi	r24, 0xEE	; 238
     18ec:	90 e0       	ldi	r25, 0x00	; 0
     18ee:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
 	 DIO_voidSetPinDirection(PORT_A,PIN0,OUTPUT);
@@ -3805,7 +3804,7 @@ _delay_loop_2(uint16_t __count)
 	 	_delay_ms(1000);
 
 	 UART_Transmite_String("\r\n done");
-    19f4:	8b ec       	ldi	r24, 0xCB	; 203
+    19f4:	84 ec       	ldi	r24, 0xC4	; 196
     19f6:	90 e0       	ldi	r25, 0x00	; 0
     19f8:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
 
@@ -3827,16 +3826,16 @@ void App_Check(void){
     1a12:	cd b7       	in	r28, 0x3d	; 61
     1a14:	de b7       	in	r29, 0x3e	; 62
 	 UART_Transmite_String("\r\n start, wait , stop,at");
-    1a16:	83 ed       	ldi	r24, 0xD3	; 211
+    1a16:	8c ec       	ldi	r24, 0xCC	; 204
     1a18:	90 e0       	ldi	r25, 0x00	; 0
     1a1a:	0e 94 34 06 	call	0xc68	; 0xc68 <UART_Transmite_String>
 
 	 UART_Recive_String(recive);
-    1a1e:	84 ef       	ldi	r24, 0xF4	; 244
+    1a1e:	8e ee       	ldi	r24, 0xEE	; 238
     1a20:	90 e0       	ldi	r25, 0x00	; 0
     1a22:	0e 94 5d 06 	call	0xcba	; 0xcba <UART_Recive_String>
 	 check(recive);
-    1a26:	84 ef       	ldi	r24, 0xF4	; 244
+    1a26:	8e ee       	ldi	r24, 0xEE	; 238
     1a28:	90 e0       	ldi	r25, 0x00	; 0
     1a2a:	0e 94 14 0b 	call	0x1628	; 0x1628 <check>
 

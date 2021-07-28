@@ -70,7 +70,7 @@ uint8_t check(uint8_t *str,uint8_t address){
 
 		I2C_MasterStart();
 		I2C_SendSlaveAddressWithWrite(0b01010000);
-				I2C_WriteDataByte(0b00000001);
+				I2C_WriteDataByte(address);
 				 I2C_WriteDataByte('c');
 				 I2C_MasterStop();
 		//eeprom_send_string("11234");

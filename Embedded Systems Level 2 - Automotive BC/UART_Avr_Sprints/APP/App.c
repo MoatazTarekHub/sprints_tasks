@@ -27,7 +27,7 @@ void check(uint8_t *str){
 		}
 	}
 	if(index==-1){
-			UART_Transmite_String("\r\n error da5l stat 3dla");
+			UART_Transmite_String("\r\n error  state ");
 
 		 }
 

@@ -114,7 +114,7 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xbb6
+.text           0x00000000      0xb9e
  *(.vectors)
  .vectors       0x00000000       0x54 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -232,14 +232,14 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
  .text.DIO_voidInpullUp
                 0x000009a2      0x1a8 ./MCAL/DIO/DIO.o
                 0x000009a2                DIO_voidInpullUp
- .text.main     0x00000b4a       0x68 ./main.o
+ .text.main     0x00000b4a       0x50 ./main.o
                 0x00000b4a                main
- .text.libgcc   0x00000bb2        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000bb2                . = ALIGN (0x2)
+ .text.libgcc   0x00000b9a        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000b9a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000bb2        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000bb2                exit
-                0x00000bb2                _exit
+ .fini9         0x00000b9a        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000b9a                exit
+                0x00000b9a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -258,11 +258,11 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000bb2        0x4 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000b9a        0x4 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000bb6                _etext = .
+                0x00000b9e                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000bb6
+.data           0x00800060        0x0 load address 0x00000b9e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -289,8 +289,8 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
  *(.bss*)
  *(COMMON)
                 0x00800060                PROVIDE (__bss_end, .)
-                0x00000bb6                __data_load_start = LOADADDR (.data)
-                0x00000bb6                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000b9e                __data_load_start = LOADADDR (.data)
+                0x00000b9e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 0x00800060                PROVIDE (__noinit_start, .)
@@ -315,13 +315,13 @@ LOAD d:/iti 3 month/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x108c
+.stab           0x00000000     0x1068
  *(.stab)
  .stab          0x00000000      0x534 ./MCAL/SPI/SPI_Program.o
  .stab          0x00000534      0x81c ./MCAL/DIO/DIO.o
                                 0x828 (size before relaxing)
- .stab          0x00000d50      0x33c ./main.o
-                                0x444 (size before relaxing)
+ .stab          0x00000d50      0x318 ./main.o
+                                0x420 (size before relaxing)
 
 .stabstr        0x00000000      0xeaa
  *(.stabstr)

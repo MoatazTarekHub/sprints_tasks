@@ -16,7 +16,7 @@ int main(void){
 	uint8_t data=0;
 	uint8_t string[100]={0};
 			SPI_SlaveInit();
-			DIO_voidSetPortDirection(PORT_C,0xff);
+			//DIO_voidSetPortDirection(PORT_C,0xff);
 			//DIO_voidSetPortValue(PORT_C,0xff);
 
 //_delay_ms(100);
@@ -29,11 +29,7 @@ int main(void){
 
 			DIO_voidSetPortValue(PORT_C,data);
 			//SPI_MasterTransmit('a');
-			if (data=='a'){
-			DIO_voidSetPinValue(PORT_C,PIN0,LOW);
-				//_delay_ms(1000);
 
-			}
 	while(1){
 
 
